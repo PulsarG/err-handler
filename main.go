@@ -21,7 +21,7 @@ func LoggErrorTo(pathfile string, err error) {
 	iLog.Println(err)
 }
 
-func LoggError(err error) {
+func LoggError(errOuter error) {
 	f, err := os.OpenFile("errors.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0777)
 	if err != nil {
 		fmt.Println(err)
@@ -33,5 +33,5 @@ func LoggError(err error) {
 
 	iLog.SetFlags(log.LstdFlags | log.Lshortfile)
 
-	iLog.Println(err)
+	iLog.Println(errOuter)
 }
