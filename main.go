@@ -6,17 +6,6 @@ import (
 	"os"
 )
 
-var LOGFILE = "mGo.log"
-var LOGFILE2 = "http.go"
-
-func main() {
-	var err error
-
-	// LoggErrorTo(LOGFILE, err)
-	LoggError(err)
-
-}
-
 func LoggErrorTo(pathfile string, err error) {
 	f, err := os.OpenFile(pathfile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0777)
 	if err != nil {
