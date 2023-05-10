@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-func LoggErrorTo(pathfile string, err error) {
+func LoggErrorTo(pathfile string, errOuter error) {
 	f, err := os.OpenFile(pathfile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0777)
 	if err != nil {
 		fmt.Println(err)
@@ -18,7 +18,7 @@ func LoggErrorTo(pathfile string, err error) {
 
 	iLog.SetFlags(log.LstdFlags | log.Lshortfile)
 
-	iLog.Println(err)
+	iLog.Println(errOuter)
 }
 
 func LoggError(errOuter error) {
